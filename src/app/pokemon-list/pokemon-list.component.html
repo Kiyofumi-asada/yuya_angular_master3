@@ -1,0 +1,13 @@
+<img src="https://zukan.pokemon.co.jp/img/logo.svg"  width="200"height="60">
+<div class="main">
+   検索:
+   <input #keyword size="20" [value]=getCurrentValue()/>
+   <button (click)="searchPokemon(keyword.value)">Search</button>
+<table>
+  <tr><th>No</th><th>名前</th>
+    <tr *ngFor="let pokemon of pokemondata">
+     <td>{{pokemon.id}}</td>
+     <td><a routerLink="/pokemon-data/{{pokemon.id}}">{{pokemon.name}}</a></td>
+  </tr>
+</table>
+</div>
