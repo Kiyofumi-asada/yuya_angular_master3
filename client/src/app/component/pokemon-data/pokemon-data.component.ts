@@ -13,19 +13,19 @@ import { Pokemon } from '../../types/pokemon';
   styleUrls: ['./pokemon-data.component.sass'],
 })
 export class PokemonDataComponent implements OnInit {
-  pokemonid: string;
+  pokemonId: string;
   pokemon!: Pokemon;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private psv: PokemonService
   ) {
-    this.pokemonid = '';
+    this.pokemonId = '';
   }
 
   ngOnInit(): void {
-    this.pokemonid = this.route.snapshot.paramMap.get('id') as string;
-    this.pokemon = this.psv.getPokemon(this.pokemonid);
+    this.pokemonId = this.route.snapshot.paramMap.get('id') as string;
+    this.pokemon = this.psv.getPokemon(this.pokemonId);
   }
 
   backToList() {

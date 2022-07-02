@@ -11,15 +11,15 @@ import { Pokemon } from '../../types/pokemon';
   styleUrls: ['./pokemon-list.component.sass'],
 })
 export class PokemonListComponent implements OnInit {
-  pokemondata: Array<any> = [];
+  pokemonData: Array<any> = [];
 
   constructor(private psv: PokemonService) {}
 
   ngOnInit(): void {
-    //this.pokemondata = this.psv.get();
+    //this.pokemonData = this.psv.get();
   }
   searchPokemon(keyword: string) {
-    this.pokemondata = this.psv.searchPokemon(keyword);
+    this.pokemonData = this.psv.searchPokemon(keyword);
     this.psv.currentValue = keyword;
   }
 

@@ -8,7 +8,7 @@
       <th>No</th>
       <th>名前</th>
     </tr>
-    <tr *ngFor="let pokemon of pokemondata">
+    <tr *ngFor="let pokemon of pokemonData">
       <td>{{ pokemon.id }}</td>
       <td>
         <a routerLink="/pokemon-data/{{ pokemon.id }}">{{ pokemon.name }}</a>
