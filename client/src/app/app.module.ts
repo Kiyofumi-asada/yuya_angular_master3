@@ -7,18 +7,10 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
 import { PokemonService } from './pokemon.service';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    PokemonListComponent,
-    PokemonDataComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, PokemonListComponent, PokemonDataComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [PokemonService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
