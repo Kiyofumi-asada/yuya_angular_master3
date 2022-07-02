@@ -18,14 +18,14 @@ export class PokemonDetailDataComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private psv: PokemonService
+    private pokemonService: PokemonService
   ) {
     this.pokemonId = '';
   }
 
   ngOnInit(): void {
     this.pokemonId = this.route.snapshot.paramMap.get('id') as string;
-    this.pokemon = this.psv.getPokemon(this.pokemonId);
+    this.pokemon = this.pokemonService.getPokemon(this.pokemonId);
   }
 
   backToList() {
