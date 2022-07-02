@@ -5,8 +5,10 @@
   <p>{{ pokemon.feature }}</p>
   <table>
     <tr>
-      <td><img src="/assets/img/pict{{ pokemon.id }}.png" /></td>
+      <td>
+        <img class="pokemon_img" src="/assets/img/pict{{ pokemon.id }}.png" />
+      </td>
     </tr>
   </table>
 </div>
-<button (click)="backToList()">一覧に戻る</button>
+<button class="buck_button" (click)="backToList()">一覧に戻る</button>
