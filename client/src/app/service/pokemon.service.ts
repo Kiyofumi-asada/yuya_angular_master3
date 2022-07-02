@@ -14,7 +14,7 @@ export class PokemonService {
     // this.setAuthorization('my-auth-token');
   }
 
-  getPokemondata(): TPokemonArray {
+  getPokemonData(): TPokemonArray {
     return this.pokemonData;
   }
 
