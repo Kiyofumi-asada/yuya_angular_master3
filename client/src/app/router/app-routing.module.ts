@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 //component
-import { PokemonDataComponent } from '../component/pokemon-data/pokemon-data.component';
+import { PokemonDetailDataComponent } from '../component/pokemon-detail-data/pokemon-detail-data.component';
 import { PokemonListComponent } from '../component/pokemon-list/pokemon-list.component';
 
 @NgModule({
@@ -12,7 +12,10 @@ import { PokemonListComponent } from '../component/pokemon-list/pokemon-list.com
     RouterModule.forRoot([
       { path: '', redirectTo: '/pokemon-list', pathMatch: 'full' },
       { path: 'pokemon-list', component: PokemonListComponent },
-      { path: 'pokemon-data/:id', component: PokemonDataComponent },
+      {
+        path: 'pokemon-detail-data/:id',
+        component: PokemonDetailDataComponent,
+      },
     ]),
   ],
   exports: [RouterModule],

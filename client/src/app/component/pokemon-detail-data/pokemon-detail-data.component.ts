@@ -8,11 +8,11 @@ import { PokemonService } from '../../service/pokemon.service';
 import { Pokemon } from '../../types/pokemon';
 
 @Component({
-  selector: 'app-pokemon-data',
-  templateUrl: './pokemon-data.component.html',
-  styleUrls: ['./pokemon-data.component.sass'],
+  selector: 'app-pokemon-detail-data',
+  templateUrl: './pokemon-detail-data.component.html',
+  styleUrls: ['./pokemon-detail-data.component.sass'],
 })
-export class PokemonDataComponent implements OnInit {
+export class PokemonDetailDataComponent implements OnInit {
   pokemonId: string;
   pokemon!: Pokemon;
   constructor(
