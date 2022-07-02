@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from './pokemon/pokemon';
-import { POKEMONDATA } from './pokemon/pokemondata';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Pokemon } from '../types/pokemon';
+import { POKEMONDATA } from '../mock/pokemon-mock';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PokemonService {
   pokemondata: Pokemon[] = POKEMONDATA;
 
@@ -15,13 +14,15 @@ export class PokemonService {
   constructor(private http: HttpClient) {
     // this.setAuthorization('my-auth-token');
   }
-  
+
   getPokemondata(): Pokemon[] {
     return this.pokemondata;
   }
 
   getPokemon(id: string): Pokemon {
-    return this.pokemondata.find(pokemon => pokemon.id.toString() == id) as Pokemon;
+    return this.pokemondata.find(
+      (pokemon) => pokemon.id.toString() == id
+    ) as Pokemon;
   }
   searchPokemon(keyword: string): Pokemon[] {
     let resultArr: Pokemon[] = [];
@@ -38,23 +39,23 @@ export class PokemonService {
 
   private httpOptions: any = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }),
     observe: 'response',
-    body: null
+    body: null,
   };
 
-
   public get(): Promise<any[]> {
-    console.log("2----")
-    return this.http.get('/pokemon', this.httpOptions)
+    console.log('2----');
+    return this.http
+      .get('/pokemon', this.httpOptions)
       .toPromise()
       .then((res) => {
         console.log(res);
 
         const response: any = res;
         return response;
-      })
-      // .catch(this.errorHandler);
+      });
+    // .catch(this.errorHandler);
   }
 }

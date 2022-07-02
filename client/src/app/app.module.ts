@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 //declarations
 import { AppComponent } from './app.component';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import { PokemonDataComponent } from './pokemon-data/pokemon-data.component';
+import { PokemonListComponent } from './component/pokemon-list/pokemon-list.component';
+import { PokemonDataComponent } from './component/pokemon-data/pokemon-data.component';
 //imports
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './router/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 //providers
-import { PokemonService } from './pokemon.service';
+import { PokemonService } from './service/pokemon.service';
 
 @NgModule({
   //NOTE:Component追加した時に追加する
