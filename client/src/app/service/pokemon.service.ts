@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Pokemon } from '../types/pokemon';
-import { POKEMONDATA } from '../mock/pokemon-mock';
+import { TPokemon, TPokemonArray } from '../types';
+import { PokemonMockData } from '../mock/pokemon-mock';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonService {
-  pokemondata: Pokemon[] = POKEMONDATA;
-
+  pokemonData: TPokemonArray = PokemonMockData;
   currentValue: string = '';
 
   constructor(private http: HttpClient) {
     // this.setAuthorization('my-auth-token');
   }
 
-  getPokemondata(): Pokemon[] {
-    return this.pokemondata;
+  getPokemondata(): TPokemonArray {
+    return this.pokemonData;
   }
 
-  getPokemon(id: string): Pokemon {
-    return this.pokemondata.find(
+  getPokemon(id: string): TPokemon {
+    return this.pokemonData.find(
       (pokemon) => pokemon.id.toString() == id
-    ) as Pokemon;
+    ) as TPokemon;
   }
-  searchPokemon(keyword: string): Pokemon[] {
-    let resultArr: Pokemon[] = [];
+  searchPokemon(keyword: string): TPokemonArray {
+    let resultArr: TPokemonArray = [];
 
-    for (let pokemon of this.pokemondata) {
+    for (let pokemon of this.pokemonData) {
       let dataStr = JSON.stringify(pokemon);
       if (dataStr.search(keyword) >= 0) {
         resultArr.push(pokemon);

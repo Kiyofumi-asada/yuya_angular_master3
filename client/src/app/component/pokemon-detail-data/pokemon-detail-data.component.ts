@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 //service
 import { PokemonService } from '../../service/pokemon.service';
 //types
-import { Pokemon } from '../../types/pokemon';
+import { TPokemon } from '../../types';
 
 @Component({
   selector: 'app-pokemon-detail-data',
@@ -14,7 +14,7 @@ import { Pokemon } from '../../types/pokemon';
 })
 export class PokemonDetailDataComponent implements OnInit {
   pokemonId: string;
-  pokemon!: Pokemon;
+  pokemon!: TPokemon;
   constructor(
     private route: ActivatedRoute,
     private location: Location,

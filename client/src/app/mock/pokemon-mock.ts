@@ -1,5 +1,5 @@
-import { Pokemon } from '../types/pokemon';
-export const POKEMONDATA: Pokemon[] = [
+import { TPokemon } from '../types';
+export const PokemonMockData: TPokemon[] = [
   {
     id: '001',
     name: 'フシギバナ',
