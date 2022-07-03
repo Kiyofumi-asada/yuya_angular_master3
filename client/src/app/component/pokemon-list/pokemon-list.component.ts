@@ -12,6 +12,7 @@ import { TPokemon } from '../../types';
 })
 export class PokemonListComponent implements OnInit {
   pokemonData: Array<TPokemon> = [];
+  searchText: string = '';
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -20,15 +21,5 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getPokemonList().subscribe((res) => {
       this.pokemonData = res.data;
     });
-  }
-
-  //ポケモン検索
-  searchPokemon(keyword: string) {
-    this.pokemonData = this.pokemonService.searchPokemon(keyword);
-    this.pokemonService.currentValue = keyword;
-  }
-  //検索後の値を返す
-  getCurrentValue() {
-    return this.pokemonService.currentValue;
   }
 }

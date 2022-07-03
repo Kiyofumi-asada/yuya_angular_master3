@@ -34,21 +34,4 @@ export class PokemonService {
   getPokemonDetailList(pokemonNo: string): Observable<TResPokemon> {
     return this._http.get<TResPokemon>(`${this.apiUrl}/${pokemonNo}`);
   }
-
-  /**
-   * ポケモン検索の関数
-   * @param keyword 検索文字
-   * @returns ヒットしたデータを返す
-   */
-  searchPokemon(keyword: string): TPokemonArray {
-    let resultArr: TPokemonArray = [];
-
-    for (let pokemon of this.pokemonData) {
-      let dataStr = JSON.stringify(pokemon);
-      if (dataStr.search(keyword) >= 0) {
-        resultArr.push(pokemon);
-      }
-    }
-    return resultArr;
-  }
 }

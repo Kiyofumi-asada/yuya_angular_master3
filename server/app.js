@@ -8,7 +8,15 @@ const path = '/pokemon';
  * @returns ポケモンデータ一覧
  */
 app.get(path, function (req, res, next) {
-  const data = mockData;
+  //一覧取得はimage以外のデータを返す
+  const data = mockData.map((data) => {
+    return {
+      no: data.no,
+      name: data.name,
+      type: data.type,
+      feature: data.feature,
+    };
+  });
   res.json({ data });
 });
 
@@ -19,7 +27,6 @@ app.get(path, function (req, res, next) {
 app.get(`${path}/:no`, function (req, res, next) {
   const { no } = req.params;
   const data = mockData.find((data) => data.no === no);
-  console.log('===called getDetailListAPI=== :', no);
   res.json({ data });
 });
 

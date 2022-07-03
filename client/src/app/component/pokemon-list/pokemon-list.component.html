@@ -1,18 +1,21 @@
 <img class="title" src="https://zukan.pokemon.co.jp/img/logo.svg" />
 <div class="main">
-  <input
-    class="search"
-    #keyword
-    [value]="getCurrentValue()"
-    placeholder="検索"
-  />
-  <button (click)="searchPokemon(keyword.value)">Search</button>
+  <div class="search-name">
+    <input
+      class="form-control"
+      type="text"
+      name="search"
+      [(ngModel)]="searchText"
+      autocomplete="on"
+      placeholder=" SEARCH  "
+    />
+  </div>
   <table>
     <tr>
       <th>No</th>
       <th>名前</th>
     </tr>
-    <tr *ngFor="let pokemon of pokemonData">
+    <tr *ngFor="let pokemon of pokemonData | filter: searchText">
       <td>{{ pokemon.no }}</td>
       <td>
         <a routerLink="/pokemon/No/{{ pokemon.no }}">{{ pokemon.name }}</a>
