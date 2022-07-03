@@ -16,11 +16,7 @@ export class PokemonListComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.getPokemonList;
-  }
-
-  //コンポーネント表示するときに、api GET /pokemon を叩く
-  getPokemonList() {
+    //コンポーネント表示するときに、api GET /pokemon を叩く
     this.pokemonService.getPokemonList().subscribe((res) => {
       this.pokemonData = res.data;
     });
