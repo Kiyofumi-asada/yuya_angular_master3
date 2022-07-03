@@ -5,32 +5,32 @@ const mockData = [
   {
     no: '001',
     name: 'フシギバナ',
-    type: 'タイプ:くさ・どく',
-    feature: '特性：しんりょく',
+    type: 'くさ・どく',
+    feature: 'しんりょく',
   },
   {
     no: '002',
     name: 'リザードン',
-    type: 'タイプ：ほのお・ひこう',
-    feature: '特性：もうか',
+    type: 'ほのお・ひこう',
+    feature: 'もうか',
   },
   {
     no: '003',
     name: 'カメックス',
-    type: 'タイプ：みず',
-    feature: '特性：げきりゅう',
+    type: 'みず',
+    feature: 'げきりゅう',
   },
   {
     no: '004',
     name: 'ピカチュウ',
-    type: 'タイプ：でんき',
-    feature: '特性：せいでんき',
+    type: 'でんき',
+    feature: 'せいでんき',
   },
   {
     no: '005',
     name: 'カビゴン',
-    type: 'タイプ：ノーマル',
-    feature: '特性：あついしぼう',
+    type: 'ノーマル',
+    feature: 'あついしぼう',
   },
 ];
 
