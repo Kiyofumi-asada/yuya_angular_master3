@@ -14,9 +14,9 @@
       <th>名前</th>
     </tr>
     <tr *ngFor="let pokemon of pokemonData">
-      <td>{{ pokemon.id }}</td>
+      <td>{{ pokemon.no }}</td>
       <td>
-        <a routerLink="/pokemon/No/{{ pokemon.id }}">{{ pokemon.name }}</a>
+        <a routerLink="/pokemon/No/{{ pokemon.no }}">{{ pokemon.name }}</a>
       </td>
     </tr>
   </table>

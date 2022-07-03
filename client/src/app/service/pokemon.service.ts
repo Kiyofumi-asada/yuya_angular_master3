@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TPokemon, TPokemonArray, TResPokemon } from '../types';
+import { TPokemonArray, TResPokemon, TResPokemonList } from '../types';
 import { PokemonMockData } from '../helper/pokemon-mock';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,17 +20,19 @@ export class PokemonService {
   constructor(private _http: HttpClient) {}
 
   /**
-   * api GET /pokemon
+   * api GET 一覧 /pokemon
    * @returns ポケモンデータ一覧
    */
-  getPokemonList(): Observable<TResPokemon> {
-    return this._http.get<TResPokemon>(this.apiUrl);
+  getPokemonList(): Observable<TResPokemonList> {
+    return this._http.get<TResPokemonList>(this.apiUrl);
   }
 
-  getPokemon(id: string): TPokemon {
-    return this.pokemonData.find(
-      (pokemon) => pokemon.id.toString() == id
-    ) as TPokemon;
+  /**
+   * api GET 詳細 /pokemon/
+   * @returns ポケモンデータ1件取得
+   */
+  getPokemonDetailList(pokemonNo: string): Observable<TResPokemon> {
+    return this._http.get<TResPokemon>(`${this.apiUrl}/${pokemonNo}`);
   }
 
   /**

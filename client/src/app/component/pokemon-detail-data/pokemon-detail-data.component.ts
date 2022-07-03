@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 //service
 import { PokemonService } from '../../service/pokemon.service';
 //types
-import { TPokemon } from '../../types';
+import { initialPokemonData, TPokemon } from '../../types';
 
 @Component({
   selector: 'app-pokemon-detail-data',
@@ -13,19 +13,20 @@ import { TPokemon } from '../../types';
   styleUrls: ['./pokemon-detail-data.component.sass'],
 })
 export class PokemonDetailDataComponent implements OnInit {
-  pokemonId: string;
-  pokemon!: TPokemon;
+  pokemonNo = this.route.snapshot.paramMap.get('id');
+  pokemonDetailData: TPokemon = initialPokemonData;
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private pokemonService: PokemonService
-  ) {
-    this.pokemonId = '';
-  }
+  ) {}
 
-  ngOnInit(): void {
-    this.pokemonId = this.route.snapshot.paramMap.get('id') as string;
-    this.pokemon = this.pokemonService.getPokemon(this.pokemonId);
+  ngOnInit() {
+    this.pokemonService
+      .getPokemonDetailList(this.pokemonNo as string)
+      .subscribe((res) => {
+        this.pokemonDetailData = res.data;
+      });
   }
 
   backToList() {

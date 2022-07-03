@@ -1,12 +1,15 @@
 **ポケモン図鑑**
-<div *ngIf="pokemon">
-  <h1>{{ pokemon.name }}</h1>
-  <p>{{ pokemon.type }}</p>
-  <p>{{ pokemon.feature }}</p>
+<div *ngIf="pokemonDetailData">
+  <h1>{{ pokemonDetailData.name }}</h1>
+  <p>{{ pokemonDetailData.type }}</p>
+  <p>{{ pokemonDetailData.feature }}</p>
   <table>
     <tr>
       <td>
-        <img class="pokemon_img" src="/assets/img/pict{{ pokemon.id }}.png" />
+        <img
+          class="pokemon_img"
+          src="/assets/img/pict{{ pokemonDetailData.no }}.png"
+        />
       </td>
     </tr>
   </table>
