@@ -3,15 +3,6 @@
   <h1>{{ pokemonDetailData.name }}</h1>
   <p>タイプ：{{ pokemonDetailData.type }}</p>
   <p>特性：{{ pokemonDetailData.feature }}</p>
-  <table>
-    <tr>
-      <td>
-        <img
-          class="pokemon_img"
-          src="/assets/img/pict{{ pokemonDetailData.no }}.png"
-        />
-      </td>
-    </tr>
-  </table>
+  <img class="pokemon_img" [src]="pokemonDetailData.image" alt="" />
 </div>
 <button class="buck_button" (click)="backToList()">一覧に戻る</button>

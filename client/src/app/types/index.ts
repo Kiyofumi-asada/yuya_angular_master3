@@ -6,6 +6,7 @@ export const initialPokemonData: TPokemon = {
   name: '',
   type: '',
   feature: '',
+  image: '',
 };
 
 //pokemonの型
@@ -14,6 +15,7 @@ export type TPokemon = {
   name: string;
   type: string;
   feature: string;
+  image?: string;
 };
 
 //TPokemonを配列で使う場合の型
