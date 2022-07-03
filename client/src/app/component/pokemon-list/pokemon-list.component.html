@@ -1,7 +1,12 @@
-<img src="https://zukan.pokemon.co.jp/img/logo.svg" width="200" height="60" />
+<img class="title" src="https://zukan.pokemon.co.jp/img/logo.svg" />
 <div class="main">
-  検索:
-  <input #keyword size="20" [value]="getCurrentValue()" placeholder="" />
+  <input
+    class="search"
+    #keyword
+    size="20"
+    [value]="getCurrentValue()"
+    placeholder="検索"
+  />
   <button (click)="searchPokemon(keyword.value)">Search</button>
   <table>
     <tr>
