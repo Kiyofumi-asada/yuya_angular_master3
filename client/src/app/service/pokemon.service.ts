@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
-import { TPokemon, TPokemonArray } from '../types';
-import { PokemonMockData } from '../mock/pokemon-mock';
+import { TPokemon, TPokemonArray, TResPokemon } from '../types';
+import { PokemonMockData } from '../helper/pokemon-mock';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonService {
+  //property
   pokemonData: TPokemonArray = PokemonMockData;
   currentValue: string = '';
 
-  constructor(private http: HttpClient) {
-    // this.setAuthorization('my-auth-token');
-  }
+  //api path
+  url: string = 'http://localhost:4200/app';
+  path = '/pokemon';
+  apiUrl: string = `${this.url}${this.path}`;
 
-  getPokemonData(): TPokemonArray {
-    return this.pokemonData;
+  constructor(private _http: HttpClient) {}
+
+  /**
+   * api GET /pokemon
+   * @returns ポケモンデータ一覧
+   */
+  getPokemonList(): Observable<TResPokemon> {
+    return this._http.get<TResPokemon>(this.apiUrl);
   }
 
   getPokemon(id: string): TPokemon {
@@ -23,6 +32,12 @@ export class PokemonService {
       (pokemon) => pokemon.id.toString() == id
     ) as TPokemon;
   }
+
+  /**
+   * ポケモン検索の関数
+   * @param keyword 検索文字
+   * @returns ヒットしたデータを返す
+   */
   searchPokemon(keyword: string): TPokemonArray {
     let resultArr: TPokemonArray = [];
 
@@ -32,29 +47,6 @@ export class PokemonService {
         resultArr.push(pokemon);
       }
     }
-
     return resultArr;
-  }
-
-  private httpOptions: any = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-    observe: 'response',
-    body: null,
-  };
-
-  public get(): Promise<any[]> {
-    console.log('2----');
-    return this.http
-      .get('/pokemon', this.httpOptions)
-      .toPromise()
-      .then((res) => {
-        console.log(res);
-
-        const response: any = res;
-        return response;
-      });
-    // .catch(this.errorHandler);
   }
 }

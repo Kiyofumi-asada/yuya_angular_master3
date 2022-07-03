@@ -10,3 +10,9 @@ export type TPokemon = {
 
 //TPokemonを配列で使う場合の型
 export type TPokemonArray = Array<TPokemon>;
+
+//データ受取用
+
+export type TResPokemon = {
+  data: { id: string; name: string; type: string; feature: string }[] | [];
+};

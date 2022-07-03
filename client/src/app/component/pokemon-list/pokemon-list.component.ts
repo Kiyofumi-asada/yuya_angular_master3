@@ -15,14 +15,23 @@ export class PokemonListComponent implements OnInit {
 
   constructor(private pokemonService: PokemonService) {}
 
-  ngOnInit(): void {
-    this.pokemonData = this.pokemonService.getPokemonData();
+  ngOnInit() {
+    this.getPokemonList;
   }
+
+  //コンポーネント表示するときに、api GET /pokemon を叩く
+  getPokemonList() {
+    this.pokemonService.getPokemonList().subscribe((res) => {
+      this.pokemonData = res.data;
+    });
+  }
+
+  //ポケモン検索
   searchPokemon(keyword: string) {
     this.pokemonData = this.pokemonService.searchPokemon(keyword);
     this.pokemonService.currentValue = keyword;
   }
-
+  //検索後の値を返す
   getCurrentValue() {
     return this.pokemonService.currentValue;
   }
